@@ -22,7 +22,7 @@
 - 📱 **多客户端格式** - Clash、Surge、Quantumult X、Shadowrocket、Loon、V2RayN 等 10+ 客户端
 - 🔗 **短链接服务** - 生成短链接便于分享，支持访问统计
 - 🌍 **多语言界面** - 中文、英文、俄语、波斯语
-- 🐳 **多种部署方式** - Vercel、Netlify、VPS Docker，一键部署完整功能
+- 🐳 **多种部署方式** - Vercel、Netlify、Cloudflare Workers、VPS Docker，一键部署完整功能
 - ⚙️ **高级配置** - 节点过滤、重命名、排序、Emoji 添加
 - 🎨 **多主题切换** - 8 种精美主题随心切换
 
