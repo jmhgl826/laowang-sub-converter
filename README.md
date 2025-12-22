@@ -22,22 +22,11 @@
   <img src="https://img.shields.io/badge/_点击体验_Demo-ready-38b2ac?style=for-the-badge" alt="Demo">
 </a>
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://laowang-sub-conv.vercel.app">
-        <img src="https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=LaoWang+Home" width="400" alt="首页">
-      </a><br>
-      <b>首页</b>
-    </td>
-    <td align="center">
-      <a href="https://laowang-sub-conv.vercel.app/converter">
-        <img src="https://via.placeholder.com/400x250/1a1a2e/ff006e?text=Converter" width="400" alt="转换器">
-      </a><br>
-      <b>转换器</b>
-    </td>
-  </tr>
-</table>
+<br><br>
+
+| 首页 | 转换器 |
+|:---:|:---:|
+| ![首页](https://placehold.co/400x250/1a1a2e/00d4ff?text=LaoWang+Home) | ![转换器](https://placehold.co/400x250/1a1a2e/ff006e?text=Converter) |
 
 </div>
 
