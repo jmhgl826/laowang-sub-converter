@@ -73,6 +73,15 @@ import ResultPanel from '../components/ResultPanel.vue'
 
 const subscriptionUrl = ref('')
 const selectedClient = ref('')
+const selectedApi = ref('local')
+
+// ?? API ???
+const apiSources = [
+  { id: 'local', name: '????', desc: '??????', url: '' },
+  { id: 'v1mk', name: 'v1.mk', desc: '????API', url: 'https://api.v1.mk' },
+  { id: 'xeton', name: 'xeton.dev', desc: '????API', url: 'https://sub.xeton.dev' },
+  { id: 'dler', name: 'dler.io', desc: '????API', url: 'https://api.dler.io' }
+]
 const advancedOptions = reactive({
   emoji: true,
   udp: true,
