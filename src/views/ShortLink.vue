@@ -9,7 +9,7 @@
       </div>
 
       <div class="shortlink-content">
-        <!-- 创建短链接 -->
+        <!-- 创建短链�?-->
         <div class="create-form glass-card">
           <h3>{{ $t('shortlink.create') }}</h3>
           <div class="form-row">
@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <!-- 短链接列表 -->
+        <!-- 短链接列�?-->
         <div class="links-list glass-card">
           <h3>{{ $t('shortlink.yourLinks') }}</h3>
           
@@ -68,7 +68,7 @@
               <span class="created">{{ formatDate(link.createdAt) }}</span>
               <span class="actions">
                 <button class="btn-icon" @click="copyLink(link.shortUrl)">📋</button>
-                <button class="btn-icon delete" @click="deleteLink(link.id)">🗑️</button>
+                <button class="btn-icon delete" @click="deleteLink(link.id)">🗑�?/button>
               </span>
             </div>
           </div>
@@ -85,7 +85,7 @@ const originalUrl = ref('')
 const newShortLink = ref('')
 const loading = ref(false)
 
-// 模拟短链接数据
+// 模拟短链接数�?
 const shortLinks = reactive([
   {
     id: '1',

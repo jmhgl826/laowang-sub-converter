@@ -112,7 +112,7 @@ exports.handler = async (event, context) => {
             }))
         }
 
-        // 重命名
+        // 重命�?
         if (rename) {
             const rules = rename.split('\n').filter(r => r.includes('->'))
             nodes = nodes.map(node => {
@@ -125,13 +125,13 @@ exports.handler = async (event, context) => {
             })
         }
 
-        // 转换为目标格式
+        // 转换为目标格�?
         const output = convertToTarget(nodes, target, {
             udp: udp === '1',
             skipCert: scert === '1'
         })
 
-        // 设置响应头
+        // 设置响应�?
         const contentTypes = {
             clash: 'text/yaml',
             clashmeta: 'text/yaml',
@@ -180,7 +180,7 @@ function parseSubscription(content) {
             content = decoded
         }
     } catch (e) {
-        // 不是 Base64 格式，使用原始内容
+        // 不是 Base64 格式，使用原始内�?
     }
 
     // 解析节点链接
@@ -295,7 +295,7 @@ function addEmoji(name) {
         'TW': '🇹🇼',
         '日本': '🇯🇵',
         'JP': '🇯🇵',
-        '新加坡': '🇸🇬',
+        '新加�?: '🇸🇬',
         'SG': '🇸🇬',
         '美国': '🇺🇸',
         'US': '🇺🇸',
@@ -307,7 +307,7 @@ function addEmoji(name) {
         'DE': '🇩🇪',
         '法国': '🇫🇷',
         'FR': '🇫🇷',
-        '俄罗斯': '🇷🇺',
+        '俄罗�?: '🇷🇺',
         'RU': '🇷🇺'
     }
 
@@ -319,7 +319,7 @@ function addEmoji(name) {
     return `🌐 ${name}`
 }
 
-// 转换为目标格式
+// 转换为目标格�?
 function convertToTarget(nodes, target, options) {
     switch (target) {
         case 'clash':
@@ -404,7 +404,7 @@ function convertToClash(nodes, options) {
 ${yamlStringify(config)}`
 }
 
-// 简单 YAML 序列化
+// 简�?YAML 序列�?
 function yamlStringify(obj, indent = 0) {
     const spaces = '  '.repeat(indent)
     let result = ''
@@ -434,7 +434,7 @@ function yamlStringify(obj, indent = 0) {
     return result
 }
 
-// 其他格式转换函数（完整版）
+// 其他格式转换函数（完整版�?
 function convertToSurge(nodes, options) {
     return nodes.map(node => {
         switch (node.type) {
