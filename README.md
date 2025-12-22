@@ -1,445 +1,139 @@
-﻿# LaoWang Sub-converter v1.1
+﻿# LaoWang Sub-converter
 
 <div align="center">
 
-![Logo](https://img.shields.io/badge/LaoWang-Sub--converter-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTEzIDJMMyAxNGgxMGwtMSAxMCAxMC0xMkgxMnoiLz48L3N2Zz4=)
+![Logo](https://img.shields.io/badge/LaoWang-Sub--converter-blue?style=for-the-badge)
+![License](https://img.shields.io/github/license/laowang-subscription/laowang-sub-converter?style=for-the-badge)
 
-**专业的代理订阅转换服�?*
+**强大的订阅转换工具 - 支持多种协议和客户端**
 
-[![GitHub license](https://img.shields.io/github/license/laowang-sub-converter/laowang-sub-converter)](LICENSE)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://hub.docker.com)
-[![Cloudflare](https://img.shields.io/badge/Cloudflare-Ready-orange?logo=cloudflare)](https://cloudflare.com)
-
-[English](./README_EN.md) | 简体中�?
+[在线体验](https://laowang-sub-conv.vercel.app) | [文档](./docs) | [问题反馈](https://github.com/laowang-subscription/laowang-sub-converter/issues)
 
 </div>
 
 ---
 
-## �?v1.1 更新亮点
+## 功能特性
 
-- ⚡️ **全面 VLESS 支持** - 所有客户端（Clash, Surge, QX, Loon, SingBox 等）现已完美支持 VLESS 协议（包�?Reality/Flow/gRPC 支持）�?
-- 🛠 **核心解析重构** - 统一的解析和转换引擎，大幅提�?SS/Trojan 等协议的兼容性与稳定性�?
-- 🔮 **Clash 增强** - `convertToClash` 逻辑升级，生成的配置更规范，特性支持更全�?
-- 📦 **ESM 架构** - 服务端代码全面迁移至 ES Modules，提升性能与现代化开发体验�?
-
-## 🚀 功能特�?
-
-- 🔄 **多协议支�?* - SS、SSR、VMess、VLESS、Trojan、Hysteria、TUIC
-- 📱 **多客户端格式** - Clash、Clash Meta、Surge、Quantumult X、Shadowrocket、Loon、V2RayN、SingBox �?
-- 🔗 **短链接服�?* - 生成短链接便于分享，支持访问统计
-- 🌍 **多语言界面** - 中文、英文、俄语、波斯语
-- 🐳 **多种部署方式** - Vercel、Netlify、Cloudflare Workers、VPS Docker，一键部署完整功�?
-- ⚙️ **高级配置** - 节点过滤、重命名、排序、Emoji 添加
-- 🎨 **多主题切�?* - 8 种精美主题随心切�?
+-  **多协议支持** - SS、SSR、VMess、VLESS（含 Reality）、Trojan、Hysteria、Hysteria2、TUIC
+-  **多客户端支持** - Clash、Surge、Quantumult X、Shadowrocket、Loon、V2RayN、V2RayNG、NekoBox、sing-box 等
+-  **短链接服务** - 生成短链接便于分享，支持访问统计
+-  **多主题切换** - 8 种精美主题随心切换
+-  **多语言支持** - 简体中文、繁体中文、English
+-  **多种部署方式** - Docker、Cloudflare、Vercel、Netlify
+-  **备用 API** - 支持多个后端 API 自动切换
 
 ---
 
-## 🌐 在线演示
+## 快速开始
 
-<p>
-  <a href="https://laowang-sub-conv.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/🔗_点击体验_Demo-laowang--sub--conv.vercel.app-38b2ac?style=for-the-badge" alt="Demo">
-  </a>
-</p>
+### 在线使用
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/images/preview_home.png" width="400" alt="首页"><br>
-      <b>首页</b>
-    </td>
-    <td align="center">
-      <img src="docs/images/preview_converter.png" width="400" alt="转换�?><br>
-      <b>订阅转换</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" colspan="2">
-      <img src="docs/images/preview_theme.png" width="600" alt="主题切换"><br>
-      <b>多主题支持（星空紫主题示例）</b>
-    </td>
-  </tr>
-</table>
+直接访问 [https://laowang-sub-conv.vercel.app](https://laowang-sub-conv.vercel.app)
 
----
-
-## ☁️ 一键部�?
-
-> �?所有部署方式都支持**完整的订阅转换功�?*（含 VLESS）�?
-
-| 平台 | 部署按钮 | 说明 |
-|------|----------|------|
-| **Vercel** | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tony-wang1990/laowang-sub-converter) | 推荐，速度�?|
-| **Netlify** | [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tony-wang1990/laowang-sub-converter) | 免费额度�?|
-| **Cloudflare Workers** | 见下方教�?| 全球边缘，超�?|
-
-### Cloudflare Workers 部署
-
-1. **Fork 本仓�?*到您�?GitHub 账号
-2. **安装 Wrangler CLI**�?
-```bash
-npm install -g wrangler
-```
-3. **登录 Cloudflare**�?
-```bash
-wrangler login
-```
-4. **克隆并部�?*�?
-```bash
-git clone https://github.com/你的用户�?laowang-sub-converter.git
-cd laowang-sub-converter
-wrangler deploy
-```
-5. 部署成功后，访问 `https://laowang-sub-converter.你的账号.workers.dev` 即可使用�?
-
----
-
-## 🚀 VPS Docker 部署
-
-如果您有自己的服务器，推荐使�?Docker Compose 部署�?
+### 本地部署
 
 ```bash
-# 1. 克隆仓库
+# 克隆项目
 git clone https://github.com/tony-wang1990/laowang-sub-converter.git
 cd laowang-sub-converter
 
-# 2. 启动服务（前�?+ 后端�?
-docker-compose up -d
+# 安装依赖
+npm install
 
-# 3. 查看运行状�?
-docker ps
+# 开发模式
+npm run dev
+
+# 生产构建
+npm run build
 ```
 
-访问 `http://服务器IP` 即可使用�?
-
-> 💡 **多架构支�?*：Docker 镜像同时支持 **AMD64** (Intel/AMD 服务�? �?**ARM64** (树莓�?Oracle ARM �?�?
-
-### 更新到最新版�?(v1.1)
+### Docker 部署
 
 ```bash
-cd laowang-sub-converter
-git pull
-# 重新构建以应用最新的服务端更�?
-docker-compose up -d --build
+docker run -d -p 3000:3000 --name sub-converter ghcr.io/tony-wang1990/laowang-sub-converter:latest
 ```
 
 ---
 
-## 📖 API 文档
+## API 使用
 
-### 订阅转换
+### 基本转换
 
 ```
-GET /api/convert
+GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 ```
 
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `target` | string | �?| 目标客户�?(clash/surge/quantumultx/shadowrocket/loon/v2rayn/singbox) |
-| `url` | string | �?| 订阅链接 (需 URL 编码) |
-| `emoji` | string | | 添加 Emoji (1/0，默�?1) |
-| `udp` | string | | 启用 UDP (1/0，默�?1) |
-| `scert` | string | | 跳过证书验证 (1/0，默�?0) |
-| `sort` | string | | 按名称排�?(1/0，默�?0) |
-| `include` | string | | 节点过滤关键�?(�?\| 分隔) |
-| `exclude` | string | | 排除节点关键�?(�?\| 分隔) |
-| `rename` | string | | 重命名规�?(旧名�?>新名�? |
+### 参数说明
 
-**示例�?*
-```
-/api/convert?target=clash&url=https%3A%2F%2Fexample.com%2Fsub&emoji=1&udp=1
-```
-
-### 短链�?
-
-**创建短链接：**
-```
-POST /api/shortlink
-Content-Type: application/json
-
-{
-  "url": "https://example.com/subscription"
-}
-```
-
-**响应�?*
-```json
-{
-  "shortUrl": "https://your-domain.com/s/abc123",
-  "id": "abc123",
-  "originalUrl": "https://example.com/subscription",
-  "clicks": 0
-}
-```
+| 参数 | 说明 | 示例 |
+|------|------|------|
+| target | 目标客户端 | clash, surge, v2rayn |
+| url | 订阅链接 | https://example.com/sub |
+| emoji | 添加 Emoji | 1 |
+| udp | 启用 UDP | 1 |
 
 ---
 
-## 🔧 项目结构 (v1.1)
+## 支持的协议
 
-```
-laowang-sub-converter/
-├── src/                    # 前端源码 (Vue 3 + Vite)
-├── server/                 # 后端 API (Node.js ESM)
-�?  ├── routes/            # API 路由
-�?  ├── utils/             # 核心解析与转换逻辑 (parsers.js, converters.js)
-�?  └── index.js           # 服务入口
-├── api/                    # Vercel Serverless Functions
-├── docker/                 # Docker 配置
-└── ...配置文件
-```
+| 协议 | 状态 |
+|------|------|
+| Shadowsocks (SS) |  |
+| ShadowsocksR (SSR) |  |
+| VMess |  |
+| VLESS |  |
+| VLESS + Reality |  |
+| Trojan |  |
+| Hysteria |  |
+| Hysteria2 |  |
+| TUIC |  |
 
----
+## 支持的客户端
 
-## 🌍 多语言支持
-
-- 🇨🇳 简体中�?
-- 🇺🇸 English
-- 🇷🇺 Русский
-- 🇮🇷 فارسی
-
----
-
-## 📝 开源协�?
-
-[MIT License](LICENSE) © 2024 LaoWang Sub-converter
-
-<div align="center">
-
-![Logo](https://img.shields.io/badge/LaoWang-Sub--converter-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTEzIDJMMyAxNGgxMGwtMSAxMCAxMC0xMkgxMnoiLz48L3N2Zz4=)
-
-**专业的代理订阅转换服�?*
-
-[![GitHub license](https://img.shields.io/github/license/laowang-sub-converter/laowang-sub-converter)](LICENSE)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://hub.docker.com)
-[![Cloudflare](https://img.shields.io/badge/Cloudflare-Ready-orange?logo=cloudflare)](https://cloudflare.com)
-
-[English](./README_EN.md) | 简体中�?
-
-</div>
-
----
-
-## �?功能特�?
-
-- 🔄 **多协议支�?* - SS、SSR、VMess、VLESS、Trojan、Hysteria、TUIC
-- 📱 **多客户端格式** - Clash、Surge、Quantumult X、Shadowrocket、Loon、V2RayN �?10+ 客户�?
-- 🔗 **短链接服�?* - 生成短链接便于分享，支持访问统计
-- 🌍 **多语言界面** - 中文、英文、俄语、波斯语
-- 🐳 **多种部署方式** - Vercel、Netlify、Cloudflare Workers、VPS Docker，一键部署完整功�?
-- ⚙️ **高级配置** - 节点过滤、重命名、排序、Emoji 添加
-- 🎨 **多主题切�?* - 8 种精美主题随心切�?
-
----
-
-## 🌐 在线演示
-
-<p>
-  <a href="https://laowang-sub-conv.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/🔗_点击体验_Demo-laowang--sub--conv.vercel.app-38b2ac?style=for-the-badge" alt="Demo">
-  </a>
-</p>
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/images/preview_home.png" width="400" alt="首页"><br>
-      <b>首页</b>
-    </td>
-    <td align="center">
-      <img src="docs/images/preview_converter.png" width="400" alt="转换�?><br>
-      <b>订阅转换</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" colspan="2">
-      <img src="docs/images/preview_theme.png" width="600" alt="主题切换"><br>
-      <b>多主题支持（星空紫主题示例）</b>
-    </td>
-  </tr>
-</table>
-
----
-
-## ☁️ 一键部�?
-
-> �?所有部署方式都支持**完整的订阅转换功�?*，使�?Serverless Functions 实现�?
-
-| 平台 | 部署按钮 | 说明 |
-|------|----------|------|
-| **Vercel** | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tony-wang1990/laowang-sub-converter) | 推荐，速度�?|
-| **Netlify** | [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tony-wang1990/laowang-sub-converter) | 免费额度�?|
-| **Cloudflare Workers** | 见下方教�?| 全球边缘，超�?|
-
-### Cloudflare Workers 部署
-
-1. **Fork 本仓�?*到您�?GitHub 账号
-
-2. **安装 Wrangler CLI**�?
-```bash
-npm install -g wrangler
-```
-
-3. **登录 Cloudflare**�?
-```bash
-wrangler login
-```
-
-4. **克隆并部�?*�?
-```bash
-git clone https://github.com/你的用户�?laowang-sub-converter.git
-cd laowang-sub-converter
-wrangler deploy
-```
-
-5. 部署成功后，访问 `https://laowang-sub-converter.你的账号.workers.dev` 即可使用�?
-
----
-
-## 🚀 VPS Docker 部署
-
-如果您有自己的服务器，推荐使�?Docker Compose 部署�?
-
-```bash
-# 1. 克隆仓库
-git clone https://github.com/tony-wang1990/laowang-sub-converter.git
-cd laowang-sub-converter
-
-# 2. 启动服务（前�?+ 后端�?
-docker-compose up -d
-
-# 3. 查看运行状�?
-docker ps
-```
-
-访问 `http://服务器IP` 即可使用�?
-
-> 💡 **多架构支�?*：Docker 镜像同时支持 **AMD64** (Intel/AMD 服务�? �?**ARM64** (树莓�?Oracle ARM �?�?
-
-### 更新到最新版�?
-
-```bash
-cd laowang-sub-converter
-git pull
-docker-compose up -d --build
-```
-
----
-
-## 📖 API 文档
-
-### 订阅转换
-
-```
-GET /api/convert
-```
-
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `target` | string | �?| 目标客户�?(clash/surge/quantumultx/shadowrocket/loon/v2rayn/singbox) |
-| `url` | string | �?| 订阅链接 (需 URL 编码) |
-| `emoji` | string | | 添加 Emoji (1/0，默�?1) |
-| `udp` | string | | 启用 UDP (1/0，默�?1) |
-| `scert` | string | | 跳过证书验证 (1/0，默�?0) |
-| `sort` | string | | 按名称排�?(1/0，默�?0) |
-| `include` | string | | 节点过滤关键�?(�?\| 分隔) |
-| `exclude` | string | | 排除节点关键�?(�?\| 分隔) |
-| `rename` | string | | 重命名规�?(旧名�?>新名�? |
-
-**示例�?*
-```
-/api/convert?target=clash&url=https%3A%2F%2Fexample.com%2Fsub&emoji=1&udp=1
-```
-
-### 短链�?
-
-**创建短链接：**
-```
-POST /api/shortlink
-Content-Type: application/json
-
-{
-  "url": "https://example.com/subscription"
-}
-```
-
-**响应�?*
-```json
-{
-  "shortUrl": "https://your-domain.com/s/abc123",
-  "id": "abc123",
-  "originalUrl": "https://example.com/subscription",
-  "clicks": 0
-}
-```
-
----
-
-## 📱 支持的客户端
-
-| 客户�?| 平台 | 格式 |
+| 客户端 | 平台 | 状态 |
 |--------|------|------|
-| Clash | 全平�?| YAML |
-| Clash Meta | 全平�?| YAML |
-| Surge | iOS/macOS | 配置文件 |
-| Quantumult X | iOS | 配置片段 |
-| Shadowrocket | iOS | Base64 |
-| Loon | iOS | 配置文件 |
-| V2RayN | Windows | Base64/JSON |
-| V2RayNG | Android | Base64 |
-| Surfboard | Android | 配置文件 |
-| Stash | iOS/macOS | YAML |
-| sing-box | 全平�?| JSON |
+| Clash | 全平台 |  |
+| Clash Meta | 全平台 |  |
+| Surge | iOS/macOS |  |
+| Quantumult X | iOS |  |
+| Shadowrocket | iOS |  |
+| Loon | iOS |  |
+| V2RayN | Windows |  |
+| V2RayNG | Android |  |
+| NekoBox | Android |  |
+| Surfboard | Android |  |
+| Stash | iOS/macOS |  |
+| sing-box | 全平台 |  |
 
 ---
 
-## 🔧 项目结构
+## 备用 API
 
-```
-laowang-sub-converter/
-├── src/                    # 前端源码
-�?  ├── assets/            # 样式和资�?
-�?  ├── components/        # Vue 组件
-�?  ├── views/             # 页面视图
-�?  ├── i18n/              # 多语言文件
-�?  └── router/            # 路由配置
-├── server/                 # 后端 API
-�?  ├── routes/            # API 路由
-�?  └── index.js           # 服务入口
-├── docker/                 # Docker 配置
-├── .github/workflows/      # GitHub Actions
-├── Dockerfile             # Docker 镜像
-├── docker-compose.yml     # Docker Compose
-├── vercel.json            # Vercel 配置
-├── netlify.toml           # Netlify 配置
-└── wrangler.toml          # Cloudflare 配置
-```
+当主服务不可用时，系统会自动切换到备用 API：
+
+- 本地服务
+- api.v1.mk
+- sub.xeton.dev
+- api.dler.io
 
 ---
 
-## 🌍 多语言支持
+## 技术栈
 
-- 🇨🇳 简体中�?
-- 🇺🇸 English
-- 🇷🇺 Русский
-- 🇮🇷 فارسی
-
----
-
-## 📝 开源协�?
-
-[MIT License](LICENSE) © 2024 LaoWang Sub-converter
+- **前端**: Vue 3 + Vite
+- **后端**: Node.js + Express
+- **样式**: CSS Variables + Glassmorphism
+- **部署**: Docker, Vercel, Netlify, Cloudflare
 
 ---
 
-## ⚠️ 免责声明
+## 开源协议
 
-本项目仅供学习交流使用，请遵守当地法律法规。使用本项目导致的任何问题，开发者不承担任何责任�?
+MIT License
 
 ---
 
-<div align="center">
+## 致谢
 
-**如果这个项目对你有帮助，请给一�?�?Star�?*
-
-</div>
+感谢所有贡献者和用户的支持！
